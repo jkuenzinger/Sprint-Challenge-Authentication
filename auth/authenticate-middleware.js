@@ -1,10 +1,11 @@
 const jwt = require("jsonwebtoken");
 
-const { jwtSecret } = require("../config/secrets");
+const { jwtSecret } = require("./secrets");
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
-if (authorization) {
+
+  if (authorization) {
     jwt.verify(authorization, jwtSecret, (error, decodedToken) => {
       if (error) {
         res.status(401).json({ you: "shall not pass!" });
@@ -16,4 +17,4 @@ if (authorization) {
   } else {
     res.status(400).json({ errorMessage: "No credentials provided" });
   }
-};
+}
