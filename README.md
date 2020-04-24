@@ -39,13 +39,17 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What is the purpose of using _sessions_?
+Sessions are kinda like tokens where we can use them for identification and authentication except the data is stored on the server it self and needs to be access fromt he server for all request needing authention so this means Sessions can take longer to use becuase you have the data stored on the backend but it gives you more controle you can delete a session on the server to lock someone out where jwt tokens don't expire until their experitation date. So depending on the size and frequency of requests could be one of the factors that goes into deciding to use sessions or not. 
 
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
 
+IT helps us sotre passwords in a secure manner becuase it allows us to use hashing to hide the information we can also raise and lower the encryption offered by using the rounds which can make a password more secure or less secure depending on the functionality you are going for. Since you can increase the number of rounds used as techonolgy gets better you can add more rounds which in a sense makes bcrypt more future proof than other password hashing frameworks. 
+
 - [ ] What does bcrypt do to slow down attackers?
+Basically like i sad about it makes it much harder for attacks to revers the hashes and extract your password form the long string that the hash creates it does this by doing multiple rounds of hashing on the same password you can control these rounds. 
 
 - [ ] What are the three parts of the JSON Web Token?
-
+ The three main parts of the json web token are the header information, the payload which usually contains the users information, and the signature. 
 ## Minimum Viable Product
 
 Implement an User Authentication System. Hash user's passwords before saving them to the database. Use `JSON Web Tokens` or `Sessions and Cookies` to persist authentication across requests.
